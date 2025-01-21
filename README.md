@@ -55,10 +55,12 @@ Download the Postman collection file (if available) or manually create requests 
 
 ```json
 {
+  "description": "This is a sample task description",
   "title": "Sample Task",
-  "description": "This is a test task",
-  "completed": false
+  "status": "Pending",
+  "dueDate": "2025-01-31"
 }
+
 ```
 
 
