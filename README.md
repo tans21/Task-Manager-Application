@@ -47,7 +47,7 @@ Download the Postman collection file (if available) or manually create requests 
 - **GET** `/tasks`: Get all tasks
 - **PUT** `/tasks/updateTask`: Update an existing task
 - **DELETE** `/tasks/deleteTask/{id}`: Delete a task by ID
-- 
+  
 ### An example for testing Create Task:
 - **Method**: `POST`
 - **URL**: `http://localhost:8080/tasks/addTask`
