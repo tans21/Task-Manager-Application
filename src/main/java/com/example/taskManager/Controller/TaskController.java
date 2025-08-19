@@ -28,7 +28,7 @@ public class TaskController {
 	}
 
 	@GetMapping(value = "get/{id}")
-	public ResponseEntity<TaskEntity> getTask(@PathVariable Integer id) {
+	public ResponseEntity<TaskEntity> getTask(@PathVariable Long id) {
 		return taskService.getTask(id).map(task -> new ResponseEntity<>(task, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -46,7 +46,7 @@ public class TaskController {
     }
 
 	@DeleteMapping(value = "/deleteTask/{id}")
-	public ResponseEntity<String> deleteTask(@PathVariable Integer id) {
+	public ResponseEntity<String> deleteTask(@PathVariable Long id) {
 		 taskService.deleteTask(id);
 		return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
 	}

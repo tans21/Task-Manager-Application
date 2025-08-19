@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.taskManager.Entity.TaskEntity;
 
 
-public interface TaskRepository extends CrudRepository<TaskEntity, Integer>{
+public interface TaskRepository extends CrudRepository<TaskEntity, Long>{
 
 	
 }

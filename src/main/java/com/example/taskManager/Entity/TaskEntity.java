@@ -11,15 +11,15 @@ import javax.persistence.Id;
 public class TaskEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String description;
 	private String title;
 	private String status;
 	private LocalDate dueDate;
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getDescription() {

@@ -18,7 +18,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public Optional<TaskEntity> getTask(Integer id) {
+    public Optional<TaskEntity> getTask(Long id) {
         return taskRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class TaskService {
         return Optional.of(taskRepository.save(task));
     }
 
-    public void deleteTask(Integer id) {
+    public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
 
