@@ -11,7 +11,7 @@ import com.example.taskManager.Entity.TaskEntity;
 import com.example.taskManager.Service.TaskService;
 
 @RestController
-// @CrossOrigin(origins = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/todo")
 public class TaskController {
 
