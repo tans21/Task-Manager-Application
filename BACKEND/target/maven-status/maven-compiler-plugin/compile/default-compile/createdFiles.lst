@@ -1,0 +1,5 @@
+com/example/taskManager/Service/TaskService.class
+com/example/taskManager/Repository/TaskRepository.class
+com/example/taskManager/TaskManagerApplication.class
+com/example/taskManager/Controller/TaskController.class
+com/example/taskManager/Entity/TaskEntity.class

@@ -1,50 +1,72 @@
 package com.example.taskManager.Entity;
 
-import java.time.LocalDate;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class TaskEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String description;
+
+	@NotEmpty(message = "Title is required")
 	private String title;
-	private String status;
-	private LocalDate dueDate;
+
+	@NotNull(message = "Due date is required")
+	private Date DueDate;
+
+	private Boolean isCompleted;
+
+	protected TaskEntity() {
+
+	}
+
+	public TaskEntity(String title, Date DueDate, Boolean isCompleted) {
+		super();
+		this.title = title;
+		this.DueDate = DueDate;
+		this.isCompleted = false;
+	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getStatus() {
-		return status;
+
+	public Date getDueDate() {
+		return DueDate;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+
+	public void setDueDate(Date dueDate) {
+		this.DueDate = dueDate;
 	}
-	public LocalDate getDueDate() {
-		return dueDate;
+
+	public Boolean getIsCompleted() {
+		return isCompleted;
 	}
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
+
+	public void setIsCompleted(Boolean isCompleted) {
+		this.isCompleted = isCompleted;
 	}
-		
+
+	@Override
+	public String toString() {
+		return "TaskEntity [id=" + id + ", title=" + title + ", DueDate=" + DueDate + ", isCompleted=" + isCompleted + "]";
+	}
 }
