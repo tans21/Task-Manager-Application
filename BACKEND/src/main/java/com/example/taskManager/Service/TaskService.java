@@ -10,32 +10,38 @@ import com.example.taskManager.Repository.TaskRepository;
 
 @Service
 public class TaskService {
-	
-	@Autowired
-	private TaskRepository taskRepository;
-	
-	public TaskEntity createTask(TaskEntity task) {
+
+    @Autowired
+    private TaskRepository taskRepository;
+
+    // Create or Update Task
+    public TaskEntity saveTask(TaskEntity task) {
         return taskRepository.save(task);
     }
 
-    public Optional<TaskEntity> getTask(Long id) {
-        return taskRepository.findById(id);
-    }
-
+    // Get all tasks
     public Iterable<TaskEntity> getAllTasks() {
         return taskRepository.findAll();
     }
 
-    public Optional<TaskEntity> updateTask(TaskEntity task) {
-        if (!taskRepository.existsById(task.getId())) {
-            return Optional.empty(); 
-        }
-        return Optional.of(taskRepository.save(task));
+    // Get task by ID
+    public Optional<TaskEntity> getTaskById(Long id) {
+        return taskRepository.findById(id);
     }
 
+    // Delete task by ID
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
 
+    // Toggle completion status
+    public TaskEntity toggleTaskCompletion(Long id) {
+        Optional<TaskEntity> optionalTask = taskRepository.findById(id);
+        if (optionalTask.isPresent()) {
+            TaskEntity task = optionalTask.get();
+            task.setIsCompleted(!Boolean.TRUE.equals(task.getIsCompleted()));
+            return taskRepository.save(task);
+        }
+        return null; // or throw custom exception
+    }
 }
-
